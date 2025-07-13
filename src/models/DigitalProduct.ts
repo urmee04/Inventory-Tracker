@@ -1,11 +1,11 @@
 import { Product } from "./Product";
 // Define the DigitalProduct class extending the Product class
-class DigitalProduct extends Product {
+export class DigitalProduct extends Product {
   // Static tax rate for all digital products(0%)
   static taxRate = 0;
   fileSize: number;
-  constructor(name: string, price: number, sku: string, fileSize: number) {
-    super(name, price, sku);
+  constructor(sku: string, name: string, price: number, fileSize: number) {
+    super(sku, name, price);
     this.fileSize = fileSize;
   }
 
@@ -15,7 +15,7 @@ class DigitalProduct extends Product {
   }
 
   // Getter method to return the formatted file size in mb
-  getSizeWithMb(): string {
-    return `(Formatted file is ${this.fileSize})mb`;
+  get sizeWithMb(): string {
+    return `${this.fileSize} mb`;
   }
 }
